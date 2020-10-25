@@ -1,28 +1,29 @@
-'use strict';
+"use strict";
 
-const row = 'ТорТ,проГресс,МамА,РАма,Мир,Торт,СветА,КонФета';
+const row = "ТорТ проГресс МамА РАма Мир Торт СветА КонФета";
 
-function split (string, separator) {
-    const lowerCaseString = string.toLowerCase();
-    const words = [];
-    let wordIndex = 0;
+const lowerCaseString = row.toLowerCase();
 
-    for (let i = 0; i < lowerCaseString.length; i++) {
-        let letter = lowerCaseString[i];
-    
-        if (letter === separator) {
-            wordIndex++;
-            continue;
-        }
-    
-        if (words[wordIndex]) {
-            words[wordIndex] = words[wordIndex] + letter;
-        } else {
-            words[wordIndex] = letter;
-        }
+function split(string, separator) {
+  const words = [];
+  let wordIndex = 0;
+
+  for (let i = 0; i < string.length; i++) {
+    const letter = string[i];
+
+    if (letter === separator) {
+      wordIndex++;
+      continue;
     }
 
-    return words;
+    if (words[wordIndex]) {
+      words[wordIndex] = words[wordIndex] + letter;
+    } else {
+      words[wordIndex] = letter;
+    }
+  }
+
+  return words;
 }
 
-console.log(split (row, ','));
+console.log(split(lowerCaseString, " "));
