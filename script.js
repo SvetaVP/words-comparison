@@ -1,15 +1,19 @@
 "use strict";
 
 const row = "ТорТ проГресс МИр МамА РАма Мир Торт СветА КонФета";
-const lowerCaseString = row.toLowerCase();
-const wordArray = split(lowerCaseString, " ");
+const words = split(row, " ");
+console.log(getUniqueWords(words));
 
-function unique(array) {
+function getUniqueWords(words) {
   const uniqueWords = [];
 
-  for (let item of array) {
-    if (!uniqueWords.includes(item)) {
-      uniqueWords.push(item);
+  for (const word of words) {
+    const lowerCaseWords = map(uniqueWords, (uniqueWord) =>
+      uniqueWord.toLowerCase()
+    );
+
+    if (!lowerCaseWords.includes(word.toLowerCase())) {
+      uniqueWords.push(word);
     }
   }
 
@@ -20,9 +24,7 @@ function split(string, separator) {
   const words = [];
   let wordIndex = 0;
 
-  for (let i = 0; i < string.length; i++) {
-    const letter = string[i];
-
+  for (const letter of string) {
     if (letter === separator) {
       wordIndex++;
       continue;
@@ -38,6 +40,13 @@ function split(string, separator) {
   return words;
 }
 
-console.log(unique(wordArray));
+function map(items, action) {
+  const result = [];
 
-// this is not the latest version, I am still thinking how to optimize it
+  for (const item of items) {
+    const iterationResult = action(item);
+    result.push(iterationResult);
+  }
+
+  return result;
+}
