@@ -12,7 +12,7 @@ function getUniqueWords(words) {
       uniqueWord.toLowerCase()
     );
 
-    if (!lowerCaseWords.includes(word.toLowerCase())) {
+    if (!includes(lowerCaseWords, word.toLowerCase())) {
       uniqueWords.push(word);
     }
   }
@@ -49,4 +49,14 @@ function map(items, action) {
   }
 
   return result;
+}
+
+function includes(object, item) {
+  var index = object.length;
+  while (index--) {
+    if (object[index] === item) {
+      return true;
+    }
+  }
+  return false;
 }
