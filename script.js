@@ -51,12 +51,12 @@ function map(items, action) {
   return result;
 }
 
-function includes(object, item) {
-  var index = object.length;
-  while (index--) {
-    if (object[index] === item) {
+function includes(items, unit) {
+  for (const item of items) {
+    if (item === unit) {
       return true;
     }
   }
+
   return false;
 }
