@@ -1,7 +1,7 @@
 "use strict";
 
-const row = "ТорТ проГресс МИр МамА РАма Мир Торт СветА КонФета";
-const words = split(row, " ");
+const row = "ТорТ,проГресс МИр,МамА,РАма,Мир,Торт,СветА,КонФета";
+const words = split(row);
 console.log(getUniqueWords(words));
 
 function getUniqueWords(words) {
@@ -18,45 +18,4 @@ function getUniqueWords(words) {
   }
 
   return uniqueWords;
-}
-
-function split(string, separator) {
-  const words = [];
-  let wordIndex = 0;
-
-  for (const letter of string) {
-    if (letter === separator) {
-      wordIndex++;
-      continue;
-    }
-
-    if (words[wordIndex]) {
-      words[wordIndex] = words[wordIndex] + letter;
-    } else {
-      words[wordIndex] = letter;
-    }
-  }
-
-  return words;
-}
-
-function map(items, action) {
-  const result = [];
-
-  for (const item of items) {
-    const iterationResult = action(item);
-    result.push(iterationResult);
-  }
-
-  return result;
-}
-
-function includes(items, unit) {
-  for (const item of items) {
-    if (item === unit) {
-      return true;
-    }
-  }
-
-  return false;
 }
