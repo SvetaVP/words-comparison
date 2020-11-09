@@ -1,7 +1,8 @@
 "use strict";
 
-const row = "ТорТ,проГресс МИр,МамА,РАма,Мир,Торт,СветА,КонФета";
-const words = split(row);
+const row = "ТорТ,проГресс МИр!МамА,РАма.Мир,Торт?СветА&КонФета";
+const separators = [".", ",", " ", "!", "&", "?"];
+const words = split(row, separators);
 console.log(getUniqueWords(words));
 
 function getUniqueWords(words) {

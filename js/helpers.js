@@ -1,10 +1,9 @@
-function split(string) {
+function split(string, dividers) {
   const words = [];
   let wordIndex = 0;
 
   for (const letter of string) {
-    if (letter === " " || letter === ",") {
-      // this is not last version, I think how to make better
+    if (includes(dividers, letter)) {
       wordIndex++;
       continue;
     }
